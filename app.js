@@ -41,7 +41,6 @@ app.get('*', (req, res) => {
 //     res.send('Hello World')
 // })
 
-// console.log(__dirname + path.join('/abc'))
 // app.use(express.static('/home/site/wwwroot'));
 const port = process.env.PORT || 80;
 app.listen(port, () => {
