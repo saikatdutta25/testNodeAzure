@@ -33,13 +33,13 @@ app.use(helmet.noSniff());
 app.use(helmet.referrerPolicy({ policy: 'no-referrer-when-downgrade' }));
 app.use(helmet.permittedCrossDomainPolicies());
 
-app.use(express.static(__dirname + path.join('/home')));
-app.get('*', (req, res) => {
-    res.sendFile(__dirname + path.join('/home/index.html'));
-});
-// app.get('/', (req, res) => {
-//     res.send('Hello World')
-// })
+// app.use(express.static(__dirname + path.join('/home')));
+// app.get('*', (req, res) => {
+//     res.sendFile(__dirname + path.join('/home/index.html'));
+// });
+app.get('/', (req, res) => {
+    res.send('Hello World')
+})
 
 // console.log(__dirname + path.join('/abc'))
 // app.use(express.static('/home/site/wwwroot'));
