@@ -26,16 +26,6 @@ app.use(
         },
     })
 );
-app.use(helmet({
-    permissionsPolicy: {
-        features: {
-            fullscreen: ['self'],
-            geolocation: ['self'],
-            microphone: ['none'],
-            camera: ['none']
-        }
-    }
-}));
 
 
 app.use(helmet.frameguard({ action: 'sameorigin' }));
