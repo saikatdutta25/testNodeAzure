@@ -59,4 +59,4 @@ jobs:
           app-name: 'wbcap-portal-test'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED3BB1D677B24B009ACBBE8A00B75D3F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C79641D90E4C48148F68D8C45C3C69F9 }}
