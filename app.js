@@ -17,7 +17,7 @@ app.use(
         useDefaults: true,
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "https://www.google.com", "https://www.gstatic.com"],
+            scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
             fontSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
             connectSrc: ["'self'", "https://www.google.com", "https://wbcap-api.azurewebsites.net", "https://stageai.wbcap.in", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
