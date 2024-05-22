@@ -32,6 +32,10 @@ app.use(helmet.frameguard({ action: 'sameorigin' }));
 app.use(helmet.noSniff());
 app.use(helmet.referrerPolicy({ policy: 'no-referrer-when-downgrade' }));
 app.use(helmet.permittedCrossDomainPolicies());
+app.use((req, res, next) => {
+    res.setHeader('Permissions-Policy', 'fullscreen=(self), geolocation=(self), camera=(), microphone=()');
+    next();
+});
 
 app.use(express.static(__dirname + path.join('/home')));
 app.get('*', (req, res) => {
