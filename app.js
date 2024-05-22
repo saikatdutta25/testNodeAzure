@@ -36,6 +36,11 @@ app.use((req, res, next) => {
     res.setHeader('Permissions-Policy', 'fullscreen=(self), geolocation=(self), camera=(), microphone=()');
     next();
 });
+// Add X-XSS-Protection header
+app.use((req, res, next) => {
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    next();
+});
 
 app.use(express.static(__dirname + path.join('/home')));
 app.get('*', (req, res) => {
