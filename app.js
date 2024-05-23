@@ -50,6 +50,11 @@ app.get('*', (req, res) => {
 //     res.send('Hello World')
 // })
 
+app.use(function (err, req, res, next) {
+    res.status(200).json({ status: err.status || 400, message: err.message })
+})
+
+
 // app.use(express.static('/home/site/wwwroot'));
 const port = process.env.PORT || 80;
 app.listen(port, () => {
