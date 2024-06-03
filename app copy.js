@@ -20,9 +20,9 @@ app.use(
             scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
             fontSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
-            connectSrc: ["'self'", "https://www.google.com", "https://pnrdapi.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
+            connectSrc: ["'self'", "https://www.google.com", "https://wbcap-api.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://stageai.wbcap.in", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
             imgSrc: ["'self'", "https://www.gstatic.com", "https://devprabeshikastorage.blob.core.windows.net", "https://pnrdsurveyprodopen.blob.core.windows.net", "data:"],
-            frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://pnrdapi.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net"],
+            frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://wbcap-api.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net"],
         },
     })
 );
@@ -39,10 +39,6 @@ app.use((req, res, next) => {
 // Add X-XSS-Protection header
 app.use((req, res, next) => {
     res.setHeader('X-XSS-Protection', '1; mode=block');
-    next();
-});
-app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "script-src 'self' 'unsafe-inline'");
     next();
 });
 
