@@ -4,7 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 app.use(helmet());
-// app.use(cors());
+app.use(cors());
 
 // Custom header settings
 app.use(helmet.hsts({
@@ -16,13 +16,22 @@ app.use(
     helmet.contentSecurityPolicy({
         useDefaults: true,
         directives: {
+            // defaultSrc: ["'self'"],
+            // scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
+            // styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+            // fontSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
+            // connectSrc: ["'self'", "https://www.google.com", "https://pnrdapi.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
+            // imgSrc: ["'self'", "https://www.gstatic.com", "httxps://devprabeshikastorage.blob.core.windows.net", "https://pnrdsurveyprodopen.blob.core.windows.net", "data:"],
+            // frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://pnrdapi.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net"],
+
             defaultSrc: ["'self'"],
             scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+            styleSrc: ["'self'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
             fontSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
             connectSrc: ["'self'", "https://www.google.com", "https://pnrdapi.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
             imgSrc: ["'self'", "https://www.gstatic.com", "https://devprabeshikastorage.blob.core.windows.net", "https://pnrdsurveyprodopen.blob.core.windows.net", "data:"],
             frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://pnrdapi.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net"],
+            objectSrc: ["'none'"] // Optionally restrict object sources
         },
     })
 );
