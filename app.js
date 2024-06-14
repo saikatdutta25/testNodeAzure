@@ -4,7 +4,15 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 app.use(helmet());
-// app.use(cors());
+const corsOptions = {
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // if you need to allow cookies or other credentials
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+};
+
+app.use(cors(corsOptions));
 
 // Custom header settings
 app.use(helmet.hsts({
@@ -20,9 +28,9 @@ app.use(
             scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
             fontSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
-            connectSrc: ["'self'", "https://www.google.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in/", "https://pnrd-api-prod.azurewebsites.net", "https://stageai.wbcap.in", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
+            connectSrc: ["'self'", "https://www.google.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in", "https://api.wbcap.in", "https://wbcap-api-prod.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://stageai.wbcap.in", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
             imgSrc: ["'self'", "https://www.gstatic.com", "https://devprabeshikastorage.blob.core.windows.net", "https://pnrdsurveyprodopen.blob.core.windows.net", "data:", "blob:"],
-            frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in/", "https://pnrd-api-prod.azurewebsites.net"],
+            frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in", "https://api.wbcap.in", "https://wbcap-api-prod.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net"],
         },
     })
 );
