@@ -28,7 +28,7 @@ app.use(
             scriptSrc: ["'self'", "https://www.google.com", "https://www.gstatic.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com", "https://fonts.gstatic.com"],
             fontSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
-            connectSrc: ["'self'", "https://www.google.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in", "https://api.wbcap.in", "https://wbcap-api-prod.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://stageai.wbcap.in", "https://paymentgatewayservice.azurewebsites.net", "http://repserver.applythrunet.co.in"],
+            connectSrc: ["'self'", "https://www.google.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in", "https://api.wbcap.in", "https://wbcap-api-prod.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net", "https://stageai.wbcap.in", "https://ai.wbcap.in", "https://paymentgatewayservice.azurewebsites.net", "https://pg.wbcap.in", "https://report.wbcap.in", "http://repserver.applythrunet.co.in"],
             imgSrc: ["'self'", "https://www.gstatic.com", "https://devprabeshikastorage.blob.core.windows.net", "https://pnrdsurveyprodopen.blob.core.windows.net", "data:", "blob:"],
             frameSrc: ["'self'", 'https://maps.googleapis.com', "https://www.google.com", "https://www.youtube.com", "https://wbcap-api.azurewebsites.net", "https://apitest.wbcap.in", "https://api.wbcap.in", "https://wbcap-api-prod.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://wbcap-api-test.azurewebsites.net", "https://pnrd-api-prod.azurewebsites.net"],
         },
@@ -59,7 +59,8 @@ app.get('*', (req, res) => {
 // })
 
 app.use(function (err, req, res, next) {
-    res.status(200).json({ status: err.status || 400, message: err.message })
+    // res.status(200).json({ status: err.status || 400, message: err.message })
+    res.sendFile(__dirname + path.join('/maintain.html'));
 })
 
 
